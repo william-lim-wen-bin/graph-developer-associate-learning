@@ -18,6 +18,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@apollo/datasource-rest": "^6.2.2",
     "@apollo/server": "^4.7.4",
     "@graphql-tools/mock": "^9.0.0",
     "@graphql-tools/schema": "^10.0.0",
