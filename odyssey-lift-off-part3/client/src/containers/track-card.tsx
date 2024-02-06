@@ -3,17 +3,18 @@ import styled from "@emotion/styled";
 import { colors, mq } from "../styles";
 import { humanReadableTimeFromSeconds } from "../utils/helpers";
 import type { Track } from "../__generated__/graphql";
+import { Link } from "react-router-dom";
 
 /**
  * Track Card component renders basic info in a card format
  * for each track populating the tracks grid homepage.
  */
 const TrackCard: React.FC<{ track: Omit<Track, "modules"> }> = ({ track }) => {
-  const { title, thumbnail, author, length, modulesCount } = track;
+  const { title, thumbnail, author, length, modulesCount, id } = track;
 
   return (
     <CardContainer>
-      <CardContent>
+      <CardContent to={`/track/${id}`}>
         <CardImageContainer>
           <CardImage src={thumbnail || ""} alt={title} />
         </CardImageContainer>
@@ -68,7 +69,7 @@ const CardContainer = styled.div({
   textDecoration: "none",
 });
 
-const CardContent = styled.div({
+const CardContent = styled(Link)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
